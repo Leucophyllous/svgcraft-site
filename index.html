@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌍 SVGCraft Server</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 6px;
+      background-color: #22c55e;
+      animation: fillBar 2s linear forwards;
+    }
+
+    @keyframes fillBar {
+      to { width: 100%; }
+    }
+
+    .fade-out {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .fade-in-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scale-in {
+      animation: scaleIn 1s ease-out forwards;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .slide-in {
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: slideIn 1.2s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- 🔄 ローディング画面 -->
+  <div id="loading-screen" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center">
+    <h1 class="text-2xl mb-6 text-green-400 animate-pulse">🌍 SVGCraft Loading...</h1>
+    <div class="w-2/3 max-w-md bg-gray-700 rounded overflow-hidden">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- ✅ 本体 -->
+  <div id="main-content" class="hidden">
+
+    <!-- Hero Header -->
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-center" style="background-image: url('https://i.imgur.com/UfYslCL.png');">
+      <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-2xl w-11/12 max-w-2xl mx-auto scale-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">🌍 SVGCraft</h1>
+        <div class="flex justify-center items-center gap-2 text-lg md:text-2xl mb-2 slide-in">
+          アドレス：
+          <span class="bg-gray-800 px-2 py-1 rounded text-white">kazuboo.tplinkdns.com</span>
+        </div>
+        <div class="flex justify-center items-center gap-2 text-lg md:text-2xl mb-6 slide-in">
+          ポート：
+          <span class="bg-gray-800 px-2 py-1 rounded text-white">19134</span>
+        </div>
+        <a href="#join" class="inline-block bg-green-500 hover:bg-green-600 text-black font-bold py-3 px-6 rounded-lg text-xl shadow-lg transform hover:scale-110 transition duration-300">今すぐ参加する</a>
+      </div>
+    </section>
+
+    <!-- Join Guide -->
+    <section id="join" class="bg-gray-800 py-20 px-6 fade-in-up">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl mb-8 border-b pb-2">🎮 参加方法</h2>
+        <ol class="list-decimal list-inside text-xl leading-relaxed space-y-4">
+          <li>Minecraft 統合版（Bedrock Edition）を起動</li>
+          <li>以下を入力して参加：
+            <ul class="ml-6 mt-2 list-disc text-base space-y-1">
+              <li>サーバー名：SVGCraft</li>
+              <li>アドレス：<code>kazuboo.tplinkdns.com</code></li>
+              <li>ポート：<code>19134</code></li>
+            </ul>
+          </li>
+          <li>保存してサーバーに接続</li>
+        </ol>
+
+        <!-- YouTube Thumbnail -->
+        <div class="mt-10 text-center">
+          <p class="text-xl mb-4">📺 設定ガイド動画：</p>
+          <a href="https://www.youtube.com/watch?v=bZWHDhKoqnc" target="_blank" class="block">
+            <img src="https://img.youtube.com/vi/bZWHDhKoqnc/maxresdefault.jpg" alt="設定動画" class="w-full max-w-2xl mx-auto rounded-xl shadow-lg transform hover:scale-105 transition duration-300" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-sm bg-black bg-opacity-80">
+      © 2025 SVGCraft Server |
+      <a href="mailto:gfhghgfgj@outlook.jp" class="underline">お問い合わせ</a>
+    </footer>
+
+  </div>
+
+  <!-- JS: ローディング終了・アニメーション発火 -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading-screen').classList.add('fade-out');
+        document.getElementById('main-content').classList.remove('hidden');
+
+        // アニメーションセクションの表示
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+          el.classList.add('show');
+        });
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>
