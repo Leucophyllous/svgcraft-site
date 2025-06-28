@@ -86,10 +86,7 @@
     <section class="h-screen bg-cover bg-center flex items-center justify-center text-center" style="background-image: url('https://i.imgur.com/UfYslCL.png');">
       <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-2xl w-11/12 max-w-2xl mx-auto scale-in">
         <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">🌍 SVGCraft</h1>
-        <div class="flex justify-center items-center gap-2 text-lg md:text-2xl mb-6 slide-in">
-          アドレス：
-          <span class="bg-gray-800 px-2 py-1 rounded text-white">kazuboo.tplinkdns.com:19134</span>
-        </div>
+        <div class="text-lg md:text-2xl mb-6 slide-in">フレンド追加で参加可能！</div>
         <a href="#join" class="inline-block bg-green-500 hover:bg-green-600 text-black font-bold py-3 px-6 rounded-lg text-xl shadow-lg transform hover:scale-110 transition duration-300">今すぐ参加する</a>
       </div>
     </section>
@@ -100,23 +97,13 @@
         <h2 class="text-3xl mb-8 border-b pb-2">🎮 参加方法</h2>
         <ol class="list-decimal list-inside text-xl leading-relaxed space-y-4">
           <li>Minecraft 統合版（Bedrock Edition）を起動</li>
-          <li>以下を入力して参加：
+          <li>「フレンド」タブを開いて、以下のユーザーを追加：
             <ul class="ml-6 mt-2 list-disc text-base space-y-1">
-              <li>サーバー名：SVGCraft</li>
-              <li>アドレス：<code>kazuboo.tplinkdns.com</code></li>
-              <li>ポート：<code>19134</code></li>
+              <li>ユーザー名：<code>SVGCraft</code></li>
             </ul>
           </li>
-          <li>保存してサーバーに接続</li>
+          <li>フレンドリストから <code>SVGCraft</code> を選び、「参加」ボタンでサーバーに接続</li>
         </ol>
-
-        <!-- YouTube Thumbnail -->
-        <div class="mt-10 text-center">
-          <p class="text-xl mb-4">📺 設定ガイド動画：</p>
-          <a href="https://www.youtube.com/watch?v=pmE-VRhnhlo" target="_blank" class="block">
-            <img src="https://img.youtube.com/vi/pmE-VRhnhlo/maxresdefault.jpg" alt="設定動画" class="w-full max-w-2xl mx-auto rounded-xl shadow-lg transform hover:scale-105 transition duration-300" />
-          </a>
-        </div>
       </div>
     </section>
 
@@ -134,11 +121,7 @@
       setTimeout(() => {
         document.getElementById('loading-screen').classList.add('fade-out');
         document.getElementById('main-content').classList.remove('hidden');
-
-        // アニメーションセクションの表示
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-          el.classList.add('show');
-        });
+        document.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('show'));
       }, 2000);
     });
   </script>
